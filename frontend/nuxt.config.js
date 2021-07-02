@@ -1,12 +1,12 @@
 require('dotenv').config();
-const { API_URL } = process.env;
+const { API_URL, LIFF_ID } = process.env;
 
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   // mode: 'spa',
   target: 'static',
   head: {
-    title: 'frontend',
+    title: 'LIFFで作ったお問い合わせフォーム',
     htmlAttrs: {
       lang: 'ja',
     },
@@ -15,6 +15,7 @@ export default {
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { hid: 'description', name: 'description', content: '' },
     ],
+    script: [{ src: 'https://static.line-scdn.net/liff/edge/2/sdk.js' }],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
   },
 
@@ -22,7 +23,7 @@ export default {
   css: [],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [],
+  plugins: [{ src: '@/plugins/vee-validate' }],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
@@ -40,6 +41,7 @@ export default {
 
   env: {
     API_URL,
+    LIFF_ID,
   },
 
   proxy: {
@@ -52,5 +54,7 @@ export default {
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
-  build: {},
+  build: {
+    transpile: ['vee-validate/dist/rules'],
+  },
 };
