@@ -34,7 +34,7 @@
     <FormLabel :title="'お問い合わせ内容'" :option="'任意'" />
     <FormTextArea :placeholder="'お問い合わせ内容'" :value="contact" @input="contact = $event" />
     <!-- 送信ボタン -->
-    <button @click="testButton()">ボタン</button>
+    <FormButton :click="submit()" @submit="submit()" />
   </div>
 </template>
 
@@ -42,12 +42,14 @@
 import FormInput from '@/components/Atoms/FormInput.vue';
 import FormLabel from '@/components/Atoms/FormLabel.vue';
 import FormTextArea from '@/components/Atoms/FormTextArea.vue';
+import FormButton from '@/components/Atoms/FormButton.vue';
 
 export default {
   components: {
     FormInput,
     FormLabel,
     FormTextArea,
+    FormButton,
   },
   data() {
     return {
@@ -63,7 +65,7 @@ export default {
     });
   },
   methods: {
-    testButton() {
+    submit() {
       if (!liff.isInClient()) {
         alert('外部ブラウザまたはLINE内ブラウザで動作させている');
       } else {
@@ -72,7 +74,7 @@ export default {
         liff.sendMessages([
           {
             type: 'text',
-            text: `お問い合わせありがとうございます。\n\n---お問い合わせ内容---\n姓：${this.firstName}\n名：${this.lastName}\nメールアドレス：${this.email}\n`,
+            text: `お問い合わせありがとうございます。\n\n---お問い合わせ内容---\n姓：${this.firstName}\n名：${this.lastName}\nメールアドレス：${this.email}\n内容：${this.contact}`,
           },
         ]);
         // アプリを閉じる
