@@ -4,6 +4,7 @@ const { API_URL } = process.env;
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   // mode: 'spa',
+  target: 'static',
   head: {
     title: 'frontend',
     htmlAttrs: {
