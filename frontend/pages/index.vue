@@ -1,11 +1,27 @@
 <template>
-  <div>
-    <!-- 姓 -->
-    <FormLabel :title="'姓'" />
-    <FormInput :type="'text'" :placeholder="'姓'" :value="firstName" @input="firstName = $event" />
-    <!-- 名 -->
-    <FormLabel :title="'名'" />
-    <FormInput :type="'text'" :placeholder="'名'" :value="lastName" @input="lastName = $event" />
+  <div class="form">
+    <div class="form-name">
+      <div class="form-name-wrapper">
+        <!-- 姓 -->
+        <FormLabel :title="'姓'" />
+        <FormInput
+          :type="'text'"
+          :placeholder="'姓'"
+          :value="firstName"
+          @input="firstName = $event"
+        />
+      </div>
+      <div class="form-name-wrapper">
+        <!-- 名 -->
+        <FormLabel :title="'名'" />
+        <FormInput
+          :type="'text'"
+          :placeholder="'名'"
+          :value="lastName"
+          @input="lastName = $event"
+        />
+      </div>
+    </div>
     <!-- メールアドレス -->
     <FormLabel :title="'メールアドレス'" />
     <FormInput
@@ -51,19 +67,7 @@ export default {
         liff.sendMessages([
           {
             type: 'text',
-            text: `
-            お問い合わせありがとうございます。
-            \n
-            \n
-            ---お問い合わせ内容---
-            \n
-            姓：${this.firstName}
-            \n
-            名：${this.lastName}
-            \n
-            メールアドレス：${this.email}
-            \n
-            `,
+            text: `お問い合わせありがとうございます。\n\n---お問い合わせ内容---\n姓：${this.firstName}\n名：${this.lastName}\nメールアドレス：${this.email}\n`,
           },
         ]);
         // アプリを閉じる
@@ -73,3 +77,22 @@ export default {
   },
 };
 </script>
+
+<style lang="scss" scoped>
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 400px;
+  width: 100%;
+
+  &-name {
+    display: flex;
+    justify-content: space-between;
+
+    &-wrapper {
+      width: calc(50% - 10px);
+    }
+  }
+}
+</style>
