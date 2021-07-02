@@ -1,8 +1,22 @@
 <template>
   <div>
-    <h1 class="title">
-      {{ text }}
-    </h1>
+    <!-- 姓 -->
+    <FormLabel :title="'姓'" />
+    <FormInput
+      :type="'firstName'"
+      :placeholder="'姓'"
+      :value="firstName"
+      @input="firstName = $event"
+    />
+    <!-- 名 -->
+    <FormLabel :title="'名'" />
+    <FormInput
+      :type="'lastName'"
+      :placeholder="'名'"
+      :value="lastName"
+      @input="lastName = $event"
+    />
+    <!-- メールアドレス -->
     <FormLabel :title="'メールアドレス'" />
     <FormInput
       :type="'email'"
@@ -10,6 +24,8 @@
       :value="email"
       @input="email = $event"
     />
+    <!-- お問い合わせ内容 -->
+    <!-- 送信ボタン -->
     <button @click="testButton()">ボタン</button>
   </div>
 </template>
@@ -23,15 +39,10 @@ export default {
     FormInput,
     FormLabel,
   },
-  async asyncData({ $axios }) {
-    const text = await $axios.$get('/');
-    return {
-      text,
-    };
-  },
   data() {
     return {
-      text: '',
+      firstName: '',
+      lastName: '',
       email: '',
     };
   },
@@ -46,12 +57,15 @@ export default {
         alert('外部ブラウザまたはLINE内ブラウザで動作させている');
       } else {
         alert('LIFFブラウザで動作させている');
+        // メッセージを送る
         liff.sendMessages([
           {
             type: 'text',
             text: this.email,
           },
         ]);
+        // アプリを閉じる
+        liff.closeWindow();
       }
     },
   },
