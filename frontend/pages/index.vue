@@ -38,7 +38,7 @@
       <FormLabel :title="'お問い合わせ内容'" :option="'任意'" />
       <FormTextArea :placeholder="'お問い合わせ内容'" :value="contact" @input="contact = $event" />
       <!-- 送信ボタン -->
-      <FormButton :click="submit" @submit="submit" :disabled="invalid" />
+      <FormButton :click="submit" @submit="submit" :invalid="invalid" />
     </div>
   </ValidationObserver>
 </template>

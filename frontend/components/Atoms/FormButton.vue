@@ -1,6 +1,6 @@
 <template>
   <div class="form-button">
-    <button class="button" @click="childClick">送信</button>
+    <button class="button" @click="childClick" :disabled="invalid">送信</button>
   </div>
 </template>
 
@@ -10,6 +10,9 @@ export default {
     click: {
       type: Function,
       required: true,
+    },
+    invalid: {
+      type: Boolean,
     },
   },
   methods: {
