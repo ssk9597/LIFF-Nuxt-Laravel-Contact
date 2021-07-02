@@ -21,6 +21,7 @@ export default {
     };
   },
   mounted() {
+    console.log(process.env.LIFF_ID);
     window.liff.init({
       liffId: process.env.LIFF_ID,
     });
@@ -28,9 +29,9 @@ export default {
   methods: {
     testButton() {
       if (!liff.isInClient()) {
-        console.log('外部ブラウザまたはLINE内ブラウザで動作させている');
+        alert('外部ブラウザまたはLINE内ブラウザで動作させている');
       } else {
-        console.log('LIFFブラウザで動作させている');
+        alert('LIFFブラウザで動作させている');
         liff.sendMessages([
           {
             type: 'text',
