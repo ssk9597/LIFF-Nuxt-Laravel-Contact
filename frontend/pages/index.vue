@@ -31,6 +31,8 @@
       @input="email = $event"
     />
     <!-- お問い合わせ内容 -->
+    <FormLabel :title="'お問い合わせ内容'" :option="'任意'" />
+    <FormTextArea :placeholder="'お問い合わせ内容'" :value="contact" @input="contact = $event" />
     <!-- 送信ボタン -->
     <button @click="testButton()">ボタン</button>
   </div>
@@ -39,17 +41,20 @@
 <script>
 import FormInput from '@/components/Atoms/FormInput.vue';
 import FormLabel from '@/components/Atoms/FormLabel.vue';
+import FormTextArea from '@/components/Atoms/FormTextArea.vue';
 
 export default {
   components: {
     FormInput,
     FormLabel,
+    FormTextArea,
   },
   data() {
     return {
       firstName: '',
       lastName: '',
       email: '',
+      contact: '',
     };
   },
   mounted() {
