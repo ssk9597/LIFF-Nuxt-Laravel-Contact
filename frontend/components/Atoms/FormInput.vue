@@ -12,7 +12,23 @@
 
 <script>
 export default {
-  props: [type, placeholder, value],
+  props: {
+    type: {
+      type: String,
+      default: 'text',
+      validator: function(value) {
+        return ['text', 'email', 'password'].indexOf(value) !== -1;
+      },
+    },
+    placeholder: {
+      type: String,
+      required: true,
+    },
+    value: {
+      type: String,
+      required: true,
+    },
+  },
 };
 </script>
 
