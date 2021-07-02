@@ -76,6 +76,12 @@ export default {
           alert('外部ブラウザまたはLINE内ブラウザで動作させている');
         } else {
           alert('LIFFブラウザで動作させている');
+          // APIを叩く
+          await $axios.post('/contacts', {
+            name: `${this.firstName} ${this.lastName}`,
+            email: this.email,
+            contact: this.contact,
+          });
           // メッセージを送る
           await liff.sendMessages([
             {
