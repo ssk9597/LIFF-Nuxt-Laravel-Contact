@@ -12,11 +12,7 @@
 
 <script>
 export default {
-  props: {
-    type,
-    placeholder,
-    value,
-  },
+  props: [type, placeholder, value],
 };
 </script>
 
