@@ -19,5 +19,10 @@ export default {
       text: '',
     };
   },
+  mounted() {
+    window.liff.init({
+      liffId: process.env.LIFF_ID,
+    });
+  },
 };
 </script>
