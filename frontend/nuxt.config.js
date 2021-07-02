@@ -6,7 +6,7 @@ export default {
   // mode: 'spa',
   target: 'static',
   head: {
-    title: 'frontend',
+    title: 'LIFFで作ったお問い合わせフォーム',
     htmlAttrs: {
       lang: 'ja',
     },
