@@ -21,6 +21,7 @@ export default {
     };
   },
   mounted() {
+    console.log(process.env.API_URL);
     console.log(process.env.LIFF_ID);
     window.liff.init({
       liffId: process.env.LIFF_ID,
