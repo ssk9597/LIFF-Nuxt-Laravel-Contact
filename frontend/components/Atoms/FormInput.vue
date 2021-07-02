@@ -1,12 +1,15 @@
 <template>
   <div>
-    <input
-      class="form-input"
-      :type="type"
-      :placeholder="placeholder"
-      :value="value"
-      @input="$emit('input', $event.target.value)"
-    />
+    <ValidationProvider :name="placeholder" :rules="rules" v-slot="{ errors }">
+      <input
+        class="form-input"
+        :type="type"
+        :placeholder="placeholder"
+        :value="value"
+        @input="$emit('input', $event.target.value)"
+      />
+      <p v-if="errors" class="form-error">{{ errors[0] }}</p>
+    </ValidationProvider>
   </div>
 </template>
 
@@ -47,5 +50,12 @@ export default {
   &:focus {
     border: 1px solid #00b5ad;
   }
+}
+
+.form-error {
+  font-size: 0.75rem;
+  font-weight: bold;
+  color: #d13636;
+  padding-bottom: 10px;
 }
 </style>

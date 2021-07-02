@@ -1,41 +1,46 @@
 <template>
-  <div class="form">
-    <div class="form-name">
-      <div class="form-name-wrapper">
-        <!-- 姓 -->
-        <FormLabel :title="'姓'" />
-        <FormInput
-          :type="'text'"
-          :placeholder="'姓'"
-          :value="firstName"
-          @input="firstName = $event"
-        />
+  <ValidationObserver v-slot="{ invalid }">
+    <div class="form">
+      <div class="form-name">
+        <div class="form-name-wrapper">
+          <!-- 姓 -->
+          <FormLabel :title="'姓'" />
+          <FormInput
+            :rules="'required|max:10'"
+            :type="'text'"
+            :placeholder="'姓'"
+            :value="firstName"
+            @input="firstName = $event"
+          />
+        </div>
+        <div class="form-name-wrapper">
+          <!-- 名 -->
+          <FormLabel :title="'名'" />
+          <FormInput
+            :rules="'required|max:10'"
+            :type="'text'"
+            :placeholder="'名'"
+            :value="lastName"
+            @input="lastName = $event"
+          />
+        </div>
       </div>
-      <div class="form-name-wrapper">
-        <!-- 名 -->
-        <FormLabel :title="'名'" />
-        <FormInput
-          :type="'text'"
-          :placeholder="'名'"
-          :value="lastName"
-          @input="lastName = $event"
-        />
-      </div>
+      <!-- メールアドレス -->
+      <FormLabel :title="'メールアドレス'" />
+      <FormInput
+        :rules="'required|email'"
+        :type="'email'"
+        :placeholder="'メールアドレス'"
+        :value="email"
+        @input="email = $event"
+      />
+      <!-- お問い合わせ内容 -->
+      <FormLabel :title="'お問い合わせ内容'" :option="'任意'" />
+      <FormTextArea :placeholder="'お問い合わせ内容'" :value="contact" @input="contact = $event" />
+      <!-- 送信ボタン -->
+      <FormButton :click="submit" @submit="submit" :disabled="invalid" />
     </div>
-    <!-- メールアドレス -->
-    <FormLabel :title="'メールアドレス'" />
-    <FormInput
-      :type="'email'"
-      :placeholder="'メールアドレス'"
-      :value="email"
-      @input="email = $event"
-    />
-    <!-- お問い合わせ内容 -->
-    <FormLabel :title="'お問い合わせ内容'" :option="'任意'" />
-    <FormTextArea :placeholder="'お問い合わせ内容'" :value="contact" @input="contact = $event" />
-    <!-- 送信ボタン -->
-    <FormButton :click="submit" @submit="submit" />
-  </div>
+  </ValidationObserver>
 </template>
 
 <script>
