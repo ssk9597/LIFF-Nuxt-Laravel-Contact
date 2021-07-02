@@ -3,12 +3,23 @@
     <h1 class="title">
       {{ text }}
     </h1>
+    <FormInput
+      :type="'email'"
+      :placeholder="'メールアドレス'"
+      :value="email"
+      @input="email = $event"
+    />
     <button @click="testButton()">ボタン</button>
   </div>
 </template>
 
 <script>
+import FormInput from '@/components/Atoms/FormInput.vue';
+
 export default {
+  components: {
+    FormInput,
+  },
   async asyncData({ $axios }) {
     const text = await $axios.$get('/');
     return {
@@ -18,6 +29,7 @@ export default {
   data() {
     return {
       text: '',
+      email: '',
     };
   },
   mounted() {
@@ -34,7 +46,7 @@ export default {
         liff.sendMessages([
           {
             type: 'text',
-            text: 'Hello World!',
+            text: this.email,
           },
         ]);
       }
