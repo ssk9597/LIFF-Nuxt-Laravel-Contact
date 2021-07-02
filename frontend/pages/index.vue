@@ -3,6 +3,7 @@
     <h1 class="title">
       {{ text }}
     </h1>
+    <FormLabel :title="'メールアドレス'" />
     <FormInput
       :type="'email'"
       :placeholder="'メールアドレス'"
@@ -15,10 +16,12 @@
 
 <script>
 import FormInput from '@/components/Atoms/FormInput.vue';
+import FormLabel from '@/components/Atoms/FormLabel.vue';
 
 export default {
   components: {
     FormInput,
+    FormLabel,
   },
   async asyncData({ $axios }) {
     const text = await $axios.$get('/');
