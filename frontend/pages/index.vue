@@ -51,7 +51,19 @@ export default {
         liff.sendMessages([
           {
             type: 'text',
-            text: `姓：${this.firstName}\n 名：${this.lastName}\n メールアドレス：${this.email}`,
+            text: `
+            お問い合わせありがとうございます。
+            \n
+            \n
+            ---お問い合わせ内容---
+            \n
+            姓：${this.firstName}
+            \n
+            名：${this.lastName}
+            \n
+            メールアドレス：${this.email}
+            \n
+            `,
           },
         ]);
         // アプリを閉じる
