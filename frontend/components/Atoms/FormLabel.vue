@@ -24,7 +24,7 @@ export default {
   },
   computed: {
     styles() {
-      if (props.option === '必須') {
+      if (this.option === '必須') {
         return {
           backgroundColor: '#d13636',
           color: '#fff',
