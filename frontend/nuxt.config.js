@@ -1,5 +1,5 @@
 require('dotenv').config();
-const { API_URL, LIFF_ID } = process.env;
+const { API_URL, LIFF_ID, TEST } = process.env;
 
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
@@ -42,6 +42,7 @@ export default {
   env: {
     API_URL,
     LIFF_ID,
+    TEST,
   },
 
   proxy: {
