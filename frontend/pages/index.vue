@@ -34,7 +34,7 @@
     <FormLabel :title="'お問い合わせ内容'" :option="'任意'" />
     <FormTextArea :placeholder="'お問い合わせ内容'" :value="contact" @input="contact = $event" />
     <!-- 送信ボタン -->
-    <FormButton :click="submit()" @submit="submit()" />
+    <FormButton :click="submit" @submit="submit" />
   </div>
 </template>
 
@@ -65,20 +65,24 @@ export default {
     });
   },
   methods: {
-    submit() {
-      if (!liff.isInClient()) {
-        alert('外部ブラウザまたはLINE内ブラウザで動作させている');
-      } else {
-        alert('LIFFブラウザで動作させている');
-        // メッセージを送る
-        liff.sendMessages([
-          {
-            type: 'text',
-            text: `お問い合わせありがとうございます。\n\n---お問い合わせ内容---\n姓：${this.firstName}\n名：${this.lastName}\nメールアドレス：${this.email}\n内容：${this.contact}`,
-          },
-        ]);
-        // アプリを閉じる
-        liff.closeWindow();
+    async submit() {
+      try {
+        if (!liff.isInClient()) {
+          alert('外部ブラウザまたはLINE内ブラウザで動作させている');
+        } else {
+          alert('LIFFブラウザで動作させている');
+          // メッセージを送る
+          await liff.sendMessages([
+            {
+              type: 'text',
+              text: `お問い合わせありがとうございます。\n\n---お問い合わせ内容---\n姓：${this.firstName}\n名：${this.lastName}\nメールアドレス：${this.email}\n内容：${this.contact}`,
+            },
+          ]);
+          // アプリを閉じる
+          await liff.closeWindow();
+        }
+      } catch (err) {
+        console.log(err);
       }
     },
   },
