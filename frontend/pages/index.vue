@@ -73,9 +73,9 @@ export default {
     async submit() {
       try {
         if (!liff.isInClient()) {
-          alert('外部ブラウザまたはLINE内ブラウザで動作させている');
+          console.log('外部ブラウザまたはLINE内ブラウザで動作させている');
         } else {
-          alert('LIFFブラウザで動作させている');
+          console.log('LIFFブラウザで動作させている');
           // APIを叩く
           await $axios.post('/contacts', {
             name: `${this.firstName} ${this.lastName}`,
@@ -94,6 +94,16 @@ export default {
         }
       } catch (err) {
         console.log(err);
+        alert(err);
+        // メッセージを送る
+        await liff.sendMessages([
+          {
+            type: 'text',
+            text: err,
+          },
+        ]);
+        // アプリを閉じる
+        await liff.closeWindow();
       }
     },
   },
