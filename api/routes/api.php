@@ -13,4 +13,5 @@ Route::get("/", function () {
 });
 
 // contacts
-Route::resource('contacts', "ContactController", ["only" => ["index", "store"]]);
+Route::post("/contacts", "ContactController@store");
+// Route::resource('contacts', "ContactController", ["only" => ["index", "store"]]);
