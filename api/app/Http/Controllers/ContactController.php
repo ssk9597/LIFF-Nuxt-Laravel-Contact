@@ -14,7 +14,7 @@ class ContactController extends Controller
 {
   public function index()
   {
-    return Contact::all();
+    return "Hello World!"
   }
 
   public function store(StoreContact $request)
