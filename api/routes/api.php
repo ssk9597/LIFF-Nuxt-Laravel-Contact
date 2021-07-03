@@ -11,3 +11,6 @@ use Illuminate\Http\Request;
 Route::get("/", function () {
   return "Hello World!";
 });
+
+// contacts
+Route::resource('contacts', "ContactController", ["only" => ["index", "store"]]);
