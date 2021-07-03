@@ -77,7 +77,7 @@ export default {
         } else {
           console.log('LIFFブラウザで動作させている');
           // APIを叩く
-          await $axios.post('/contacts', {
+          await this.$axios.$post('/contacts', {
             name: `${this.firstName} ${this.lastName}`,
             email: this.email,
             contact: this.contact,
