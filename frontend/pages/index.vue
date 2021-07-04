@@ -57,6 +57,12 @@ export default {
   transition: 0.3s;
 }
 
+.contact-content {
+  font-size: 1.25rem;
+  padding-bottom: 10px;
+  font-weight: bold;
+}
+
 .content-name,
 .contact-email {
   padding: 0.8em 0;
