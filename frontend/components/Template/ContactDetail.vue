@@ -12,7 +12,10 @@
 <script>
 export default {
   props: {
-    contacts,
+    contacts: {
+      type: String,
+      required: true,
+    },
   },
 };
 </script>

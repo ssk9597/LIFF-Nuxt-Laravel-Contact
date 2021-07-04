@@ -1,7 +1,7 @@
 <template>
   <div>
     <Form />
-    <ContactDetail />
+    <ContactDetail :contacts="contacts" />
   </div>
 </template>
 
