@@ -114,6 +114,7 @@ export default {
   justify-content: center;
   max-width: 400px;
   width: 100%;
+  margin: 0 auto;
 
   &-name {
     display: flex;
