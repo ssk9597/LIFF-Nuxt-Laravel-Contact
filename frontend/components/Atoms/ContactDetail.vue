@@ -40,4 +40,13 @@ export default {
   padding: 0.8em 0;
   font-size: 0.8em;
 }
+
+.contact-email {
+  color: #00b5ad;
+  cursor: pointer;
+
+  &:hover {
+    border-bottom: #00b5ad 1px solid;
+  }
+}
 </style>

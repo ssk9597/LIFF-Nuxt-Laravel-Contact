@@ -33,4 +33,29 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.card {
+  box-sizing: border-box;
+  width: 15em;
+  padding: 1.2em 0.8em;
+  margin: 0 auto;
+  color: #333;
+  border: 0.5px solid #e9eaea;
+  border-radius: 3px;
+  transition: 0.3s;
+}
+
+.content-name,
+.contact-email {
+  padding: 0.8em 0;
+  font-size: 0.8em;
+}
+
+.contact-email {
+  color: #00b5ad;
+  cursor: pointer;
+
+  &:hover {
+    border-bottom: #00b5ad 1px solid;
+  }
+}
 </style>
