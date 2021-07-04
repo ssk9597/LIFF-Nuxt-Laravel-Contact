@@ -2,6 +2,7 @@
   <div>
     <Form />
     <!-- <ContactDetail /> -->
+    <h2 class="heading">お問い合わせ内容</h2>
     <div class="card" v-for="(contact, index) in contacts" :key="index">
       <h3 class="contact-content">{{ contact.contact }}</h3>
       <p class="contact-name">{{ contact.name }}</p>
@@ -33,6 +34,13 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.heading {
+  padding-top: 30px;
+  padding-bottom: 0.35em;
+  font-size: 1.5em;
+  color: #333;
+  border-bottom: 3px solid #ccc;
+}
 .card {
   box-sizing: border-box;
   width: 15em;
