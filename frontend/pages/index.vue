@@ -14,6 +14,16 @@ export default {
     Form,
     ContactDetail,
   },
+  async asyncData({ $axios }) {
+    const contacts = await $axios.$get('/contacts/index');
+    console.log(contacts);
+    return { contacts };
+  },
+  mounted() {
+    window.liff.init({
+      liffId: process.env.LIFF_ID,
+    });
+  },
 };
 </script>
 

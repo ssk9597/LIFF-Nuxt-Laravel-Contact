@@ -11,15 +11,8 @@
 
 <script>
 export default {
-  async asyncData({ $axios }) {
-    const contacts = await $axios.$get('/contacts/index');
-    console.log(contacts);
-    return { contacts };
-  },
-  mounted() {
-    window.liff.init({
-      liffId: process.env.LIFF_ID,
-    });
+  props: {
+    contacts,
   },
 };
 </script>
