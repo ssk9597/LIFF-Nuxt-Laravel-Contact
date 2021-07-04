@@ -64,11 +64,6 @@ export default {
       contact: '',
     };
   },
-  // mounted() {
-  //   window.liff.init({
-  //     liffId: process.env.LIFF_ID,
-  //   });
-  // },
   methods: {
     async submit() {
       try {
@@ -80,6 +75,7 @@ export default {
             email: this.email,
             contact: this.contact,
           });
+          return redirect('/');
         } else {
           console.log('LIFFブラウザで動作させている');
           // APIを叩く
