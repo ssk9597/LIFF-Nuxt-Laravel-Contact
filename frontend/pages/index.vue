@@ -36,7 +36,7 @@ export default {
 <style lang="scss" scoped>
 .heading {
   padding-top: 50px;
-  padding-bottom: 0.35em;
+  padding-bottom: 30px;
   font-size: 1.5em;
   color: #333;
   border-bottom: 3px solid #ccc;
@@ -46,7 +46,8 @@ export default {
 }
 .card {
   box-sizing: border-box;
-  width: 15em;
+  max-width: 300px;
+  width: 100%;
   padding: 1.2em 0.8em;
   margin: 10px auto;
   color: #333;
