@@ -4,9 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-// 後から消す
-use Illuminate\Support\Facades\Log;
-
 // Models
 use App\Models\Contact;
 
@@ -17,13 +14,11 @@ class ContactController extends Controller
 {
   public function index()
   {
-    Log::info("OK");
-    return "Hello World!";
+    return Contact::all();
   }
 
   public function store(StoreContact $request)
   {
-    Log::info("叩く");
     // インスタンス化
     $contact = new Contact;
 
