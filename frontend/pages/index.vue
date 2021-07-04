@@ -73,9 +73,21 @@ export default {
     async submit() {
       try {
         if (!liff.isInClient()) {
-          alert('外部ブラウザまたはLINE内ブラウザで動作させている');
+          console.log('外部ブラウザまたはLINE内ブラウザで動作させている');
+          // APIを叩く
+          await this.$axios.$post('/contacts', {
+            name: `${this.firstName} ${this.lastName}`,
+            email: this.email,
+            contact: this.contact,
+          });
         } else {
-          alert('LIFFブラウザで動作させている');
+          console.log('LIFFブラウザで動作させている');
+          // APIを叩く
+          await this.$axios.$post('/contacts', {
+            name: `${this.firstName} ${this.lastName}`,
+            email: this.email,
+            contact: this.contact,
+          });
           // メッセージを送る
           await liff.sendMessages([
             {
@@ -88,6 +100,7 @@ export default {
         }
       } catch (err) {
         console.log(err);
+        alert(err);
       }
     },
   },
