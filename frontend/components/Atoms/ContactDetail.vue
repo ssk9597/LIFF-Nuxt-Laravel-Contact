@@ -28,7 +28,7 @@ export default {
   box-sizing: border-box;
   width: 15em;
   padding: 1.2em 0.8em;
-  margin: 0 auto;
+  margin: 10px auto;
   color: #333;
   border: 0.5px solid #e9eaea;
   border-radius: 3px;
