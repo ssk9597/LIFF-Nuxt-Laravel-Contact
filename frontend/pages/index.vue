@@ -36,7 +36,8 @@ export default {
 <style lang="scss" scoped>
 .heading {
   padding-top: 50px;
-  padding-bottom: 30px;
+  padding-bottom: 0.35em;
+  margin-bottom: 30px;
   font-size: 1.5em;
   color: #333;
   border-bottom: 3px solid #ccc;
